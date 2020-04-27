@@ -33,6 +33,8 @@ module.exports = {
   },
   rules: {
     'linebreak-style': 0,
+    'react/jsx-props-no-spreading': 0,
+    'no-unused-expressions': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
   },
 };

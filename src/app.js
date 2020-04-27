@@ -1,15 +1,20 @@
-import { hot } from 'react-hot-loader/root';
-import React, { PureComponent } from 'react';
+// import { hot } from 'react-hot-loader/root';
+import React, { Suspense } from 'react';
+import { Provider } from 'react-redux'
+import store from './redux';
+import Check from './check'
+import Test from './test'
 
-class App extends PureComponent {
-  render () {
-    return (
-      <>
-        app
-      </>
-    );
-  }
+const App = () => {
+  return (
+    <Provider store={store}>
+      <Suspense fallback={<div>loading...</div>}>
+        <Check />
+        <Test />
+      </Suspense>
+    </Provider>
+  );
 }
 
 
-export default hot(App);
+export default App;
