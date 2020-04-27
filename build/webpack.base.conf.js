@@ -19,6 +19,9 @@ const baseConfig = {
     path: resolve('dist'),
     publicPath: config[process.env.BUILD_ENV].PUBLIC_PATH
   },
+  resolveLoader: {
+    modules: ['node_modules', resolve('build/loaders/')],
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
@@ -30,7 +33,12 @@ const baseConfig = {
     rules: [
       {
         test: /\.js[x]?$/,
-        loader: 'happypack/loader?id=happy-babel',
+        use: ['happypack/loader?id=happy-babel', {
+          loader: 'react-img-loader',
+          options: {
+            filter: 'static'
+          }
+        }],
         include: resolve('src')
       },
       {
