@@ -15,7 +15,7 @@ const Check = () => {
     const promise = fetchInfo();
     throw promise; // Let suspense know
   }
-  return <div>okokokoko</div>;
+  return null;
 };
 
 export default Check;
